@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>乔家大院拍照路线 H5</title>
+  <meta name="description" content="乔家大院拍照路线，按主甬道、在中堂第一院门口照壁、在中堂一院、明楼院、百寿图、甬道与阁楼、在中堂第四院顺路拍摄。">
+  <meta name="keywords" content="乔家大院拍照路线,乔家大院路线,乔家大院摄影路线,乔家大院机位路线">
+  <style>
+    :root {
+      --ink: #211813;
+      --muted: #71665e;
+      --paper: #fff8ec;
+      --panel: rgba(255, 252, 246, .96);
+      --red: #b33224;
+      --teal: #1c6b66;
+      --gold: #d7a83f;
+      --blue: #395c8a;
+      --line: rgba(33, 24, 19, .13);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #e9dfd0;
+      display: flex;
+      justify-content: center;
+    }
+    a { color: inherit; text-decoration: none; }
+    .h5 {
+      width: min(100%, 430px);
+      min-height: 100vh;
+      background: var(--paper);
+      box-shadow: 0 18px 52px rgba(48, 32, 22, .18);
+    }
+    .hero {
+      min-height: 88vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: max(18px, env(safe-area-inset-top)) 18px 24px;
+      background:
+        linear-gradient(180deg, rgba(14, 12, 10, .12), rgba(14, 12, 10, .78)),
+        url("assets/明楼院.png") center / cover;
+    }
+    .nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .18);
+      border: 1px solid rgba(255, 255, 255, .28);
+      backdrop-filter: blur(12px);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .nav .home-link {
+      background: rgba(255, 216, 61, .92);
+      color: #1b1714;
+      border-color: rgba(255, 216, 61, .95);
+    }
+    .nav a[aria-current="page"] { background: #fff; color: var(--red); }
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(57, 92, 138, .92);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 12px 0 10px;
+      font-size: 42px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .hero p {
+      width: min(100%, 336px);
+      margin: 0;
+      color: rgba(255, 255, 255, .9);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 650;
+    }
+    .route-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .route-summary div {
+      min-height: 72px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, .42);
+    }
+    .route-summary strong {
+      display: block;
+      font-size: 18px;
+      color: var(--blue);
+    }
+    .route-summary span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 750;
+    }
+    main { padding: 22px 16px 40px; }
+    section { margin-bottom: 26px; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .label {
+      flex: 0 0 auto;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 12px;
+    }
+    .node {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+    }
+    .node img {
+      width: 96px;
+      height: 126px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .node small {
+      display: inline-flex;
+      padding: 5px 7px;
+      border-radius: 7px;
+      background: rgba(57, 92, 138, .1);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .node h3 {
+      margin: 8px 0 6px;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+    .node p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 650;
+    }
+    .map {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(179, 50, 36, .08);
+      border: 1px solid rgba(179, 50, 36, .16);
+    }
+    .map div {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      align-items: center;
+      min-height: 34px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .map b {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      color: #fff;
+      font-size: 12px;
+    }
+    .tips {
+      display: grid;
+      gap: 10px;
+    }
+    .tip {
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(28, 107, 102, .08);
+      border: 1px solid rgba(28, 107, 102, .16);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+      font-weight: 650;
+    }
+    .tip strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-size: 16px;
+    }
+    .bottom-link {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 900;
+    }
+    .bottom-actions {
+      display: grid;
+      gap: 10px;
+    }
+    .bottom-link.secondary {
+      background: #fffdf8;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 360px) {
+      h1 { font-size: 36px; }
+      .node { grid-template-columns: 86px 1fr; }
+      .node img { width: 86px; height: 118px; }
+      .route-summary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="h5">
+    <header class="hero">
+      <nav class="nav" aria-label="专题导航">
+        <a class="home-link" href="index.html#guide">返回乔家大院 H5</a>
+        <a href="photo-guide.html">拍照攻略</a>
+        <a href="checkin-guide.html">打卡攻略</a>
+        <a href="photo-route.html" aria-current="page">拍照路线</a>
+        <a href="jinshang-photography.html">晋商摄影</a>
+        <a href="shanxi-ancient-architecture.html">山西古建</a>
+      </nav>
+      <div>
+        <span class="kicker">一条路拍完七个机位</span>
+        <h1>乔家大院拍照路线</h1>
+        <p>路线原则很简单：先拍最容易被人流占住的大景，再向院内收细节。顺着主线走，基本不用折返，适合边逛边拍。</p>
+        <div class="route-summary">
+          <div><strong>01</strong><span>大景先拍</span></div>
+          <div><strong>04</strong><span>院落中段停留</span></div>
+          <div><strong>07</strong><span>细节收尾</span></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="section-head">
+          <h2>顺路地图</h2>
+          <span class="label">按拍摄节奏走</span>
+        </div>
+        <div class="map">
+          <div><b>1</b><span>主甬道：第一张大院感封面</span></div>
+          <div><b>2</b><span>第一院门口照壁：人物正面和门墙细节</span></div>
+          <div><b>3</b><span>在中堂一院：门洞、红灯笼、院落层次</span></div>
+          <div><b>4</b><span>明楼院：楼阁大景和台阶人物照</span></div>
+          <div><b>5</b><span>百寿图：纹样、半身、手部细节</span></div>
+          <div><b>6</b><span>甬道与阁楼：压缩空间和纵深感</span></div>
+          <div><b>7</b><span>在中堂第四院：安静收尾，补拍空镜</span></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>路线详解</h2>
+          <span class="label">每站拍什么</span>
+        </div>
+        <div class="timeline">
+          <article class="node">
+            <img src="assets/乔家大院主甬道.jpg" alt="主甬道">
+            <div><small>第 1 站</small><h3>主甬道</h3><p>站到甬道中后段，拍全身和背影。等路人走到远处也没关系，反而能带出空间尺度。</p></div>
+          </article>
+          <article class="node">
+            <img src="assets/在中堂第一院门口照壁.jpg" alt="在中堂第一院门口照壁">
+            <div><small>第 2 站</small><h3>第一院门口照壁</h3><p>用 2 倍镜头拍半身，人物侧身或正面都稳。背景纹理不要切得太碎。</p></div>
+          </article>
+          <article class="node">
+            <img src="assets/在中堂一院.png" alt="在中堂一院">
+            <div><small>第 3 站</small><h3>在中堂一院</h3><p>找门框做前景，人物站在门内或门外，拍出“院中有院”的层次。</p></div>
+          </article>
+          <article class="node">
+            <img src="assets/明楼院.png" alt="明楼院">
+            <div><small>第 4 站</small><h3>明楼院</h3><p>拍宽一点，保留楼体、檐口和地面。人物不要太靠近镜头，避免压住建筑。</p></div>
+          </article>
+          <article class="node">
+            <img src="assets/百寿图.jpg" alt="百寿图">
+            <div><small>第 5 站</small><h3>百寿图</h3><p>适合从大景切到细节。拍手持扇子、回头、低头看纹样，画面更静。</p></div>
+          </article>
+          <article class="node">
+            <img src="assets/大院的甬道与阁楼.jpg" alt="大院的甬道与阁楼">
+            <div><small>第 6 站</small><h3>甬道与阁楼</h3><p>用竖构图收住两侧墙线，人物走在画面远端，拍出深宅大院的压缩感。</p></div>
+          </article>
+          <article class="node">
+            <img src="assets/在中堂第四院.png" alt="在中堂第四院">
+            <div><small>第 7 站</small><h3>在中堂第四院</h3><p>最后补拍空镜、局部和安静的人像，给整组照片一个收束。</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>时间建议</h2>
+          <span class="label">更省体力</span>
+        </div>
+        <div class="tips">
+          <div class="tip"><strong>1 小时快拍</strong>只拍主甬道、照壁、明楼院、百寿图，每个点 10 分钟左右，适合跟团或时间紧。</div>
+          <div class="tip"><strong>2 到 3 小时完整拍</strong>按七站路线走，每站保留全身、半身、空镜各一张，最后很容易组成九宫格。</div>
+          <div class="tip"><strong>人多时反向补细节</strong>大景人多就先拍门环、窗棂和砖雕，等人流散开再回到甬道或院门。</div>
+        </div>
+      </section>
+
+      <div class="bottom-actions">
+        <a class="bottom-link" href="index.html#guide">返回乔家大院攻略页</a>
+        <a class="bottom-link secondary" href="checkin-guide.html">查看打卡清单</a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

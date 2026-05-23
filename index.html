@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>乔家大院电影机位打卡 H5</title>
+  <meta name="description" content="乔家大院拍照攻略与打卡攻略，整理乔家大院电影机位、摄影机位、红灯笼机位、汉服拍照和拍照路线，适合晋商大院摄影、古建筑电影感、中式庭院拍照和山西最出片古建筑旅行参考。">
+  <meta name="keywords" content="乔家大院拍照攻略,乔家大院打卡攻略,乔家大院电影机位,乔家大院摄影机位,乔家大院红灯笼机位,乔家大院汉服拍照,乔家大院拍照路线,晋商大院摄影,古建筑电影感,中式庭院拍照,山西最出片古建筑">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "乔家大院拍照攻略与电影机位路线",
+      "description": "面向乔家大院拍照打卡、汉服拍照、红灯笼机位和古建筑电影感摄影的游玩攻略。",
+      "touristType": ["摄影爱好者", "汉服拍照用户", "古建筑旅行用户"],
+      "itinerary": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "乔家大院主甬道"},
+          {"@type": "ListItem", "position": 2, "name": "在中堂第一院门口照壁"},
+          {"@type": "ListItem", "position": 3, "name": "在中堂一院"},
+          {"@type": "ListItem", "position": 4, "name": "明楼院"},
+          {"@type": "ListItem", "position": 5, "name": "百寿图"},
+          {"@type": "ListItem", "position": 6, "name": "大院的甬道与阁楼"},
+          {"@type": "ListItem", "position": 7, "name": "在中堂第四院"}
+        ]
+      },
+      "keywords": "乔家大院拍照攻略,乔家大院打卡攻略,乔家大院电影机位,乔家大院摄影机位,乔家大院红灯笼机位,乔家大院汉服拍照,乔家大院拍照路线,晋商大院摄影,古建筑电影感,中式庭院拍照,山西最出片古建筑"
+    }
+  </script>
+  <style>
+    :root {
+      --ink: #1b1714;
+      --muted: #746a62;
+      --paper: #fff8ec;
+      --panel: rgba(255, 252, 246, .94);
+      --yellow: #ffd83d;
+      --pink: #ef5d8e;
+      --line: rgba(42, 29, 19, .12);
+      --shadow: 0 18px 45px rgba(63, 40, 18, .18);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 18px;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 22% 8%, rgba(255, 216, 61, .24), transparent 22rem),
+        radial-gradient(circle at 82% 18%, rgba(239, 93, 142, .15), transparent 18rem),
+        linear-gradient(135deg, #fffaf3 0%, #f8efe6 100%);
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      color: inherit;
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .phone {
+      width: min(100%, 430px);
+      min-height: calc(100vh - 36px);
+      max-height: 940px;
+      background: var(--paper);
+      border: 1px solid rgba(62, 42, 22, .12);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(70, 45, 21, .09) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: .36;
+      z-index: 0;
+    }
+
+    .app {
+      min-height: calc(100vh - 36px);
+      max-height: 940px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .status {
+      height: 32px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .topbar {
+      min-height: 46px;
+      display: grid;
+      grid-template-columns: 40px 1fr 40px;
+      align-items: center;
+      padding: 2px 12px 8px;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .68);
+      border: 1px solid rgba(43, 31, 20, .1);
+      box-shadow: 0 8px 22px rgba(74, 48, 25, .08);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .top-title {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .screens {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      padding: 0 16px 104px;
+      opacity: 0;
+      transform: translateX(18px);
+      pointer-events: none;
+      transition: opacity .28s ease, transform .28s ease;
+      scrollbar-width: none;
+    }
+
+    .screen::-webkit-scrollbar { display: none; }
+    .screen.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+
+    .home {
+      padding: 0 0 22px;
+      background: #151312;
+      color: #fff;
+    }
+
+    .hero {
+      min-height: calc(100vh - 70px);
+      padding: 0 18px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(20, 18, 16, .12) 0%, rgba(20, 18, 16, .32) 38%, rgba(10, 8, 7, .72) 100%),
+        url("assets/乔家大院主甬道.jpg") center / cover;
+      transform: scale(1.03);
+    }
+
+    .hero-inner,
+    .intro-card,
+    .down-note { position: relative; z-index: 1; }
+
+    .hero-title {
+      margin: 34px 0 8px;
+      max-width: 330px;
+      font-size: clamp(42px, 13.5vw, 58px);
+      line-height: .98;
+      font-weight: 950;
+      text-shadow: 0 8px 28px rgba(0, 0, 0, .44);
+    }
+
+    .paint-badge {
+      display: inline-flex;
+      margin: 8px 0 0;
+      padding: 8px 15px;
+      border-radius: 999px 999px 999px 12px;
+      background: var(--yellow);
+      color: #111;
+      font-weight: 950;
+      box-shadow: 0 8px 0 rgba(0, 0, 0, .16);
+      transform: rotate(-2deg);
+    }
+
+    .paint-badge.secondary {
+      display: table;
+      font-size: 13px;
+      transform: rotate(1deg);
+      background: #ffe66a;
+    }
+
+    .down-note {
+      align-self: center;
+      margin: auto 0 10px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .86);
+    }
+
+    .intro-card {
+      background: rgba(255, 249, 239, .96);
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 -8px 28px rgba(0, 0, 0, .2);
+    }
+
+    .intro-card h2,
+    .section-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .pill-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 12px 0 0;
+    }
+
+    .reason {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 8px;
+      border-radius: 14px;
+      background: #fff1d8;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .dot,
+    .num {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--pink);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 950;
+      flex: 0 0 auto;
+    }
+
+    .cta {
+      width: 100%;
+      min-height: 48px;
+      border-radius: 999px;
+      background: var(--yellow);
+      box-shadow: 0 10px 0 rgba(255, 183, 38, .36);
+      font-size: 15px;
+      font-weight: 950;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .intro-action { margin-top: 14px; }
+    .intro-card .intro-action {
+      min-height: 40px;
+      margin-top: 10px;
+      box-shadow: 0 8px 0 rgba(255, 183, 38, .3);
+    }
+    .cta.pink { background: linear-gradient(135deg, #ff78a7, #eb4b85); color: #fff; box-shadow: 0 10px 0 rgba(227, 70, 121, .22); }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(62, 42, 22, .08);
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(89, 57, 23, .08);
+    }
+
+    .map-hero {
+      margin: 8px 0 18px;
+      padding: 20px 16px;
+      min-height: 362px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(255, 250, 242, .62), rgba(255, 250, 242, .86)),
+        url("assets/大院的甬道与阁楼.jpg") center / cover;
+    }
+
+    .map-hero h1,
+    .page-heading {
+      margin: 0 0 8px;
+      text-align: center;
+      font-size: 32px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+
+    .small {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .marker-map {
+      position: relative;
+      width: min(100%, 318px);
+      aspect-ratio: 1.08;
+      margin: 24px auto 0;
+      filter: drop-shadow(0 14px 24px rgba(69, 44, 20, .18));
+    }
+
+    .map-shape {
+      position: absolute;
+      inset: 12% 7% 10%;
+      border-radius: 28% 38% 30% 42%;
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, .58), rgba(255, 229, 171, .82)),
+        url("assets/在中堂一院.png") center / cover;
+      border: 8px solid rgba(255, 250, 239, .9);
+      transform: rotate(-8deg);
+    }
+
+    .route {
+      position: absolute;
+      inset: 4% -2% 2%;
+      border: 2px dashed rgba(34, 28, 22, .58);
+      border-left: 0;
+      border-top: 0;
+      border-radius: 50%;
+      transform: rotate(14deg);
+    }
+
+    .pin {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50% 50% 50% 10px;
+      transform: rotate(-45deg);
+      background: var(--pink);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 7px 14px rgba(239, 93, 142, .34);
+      border: 3px solid #fff;
+      z-index: 2;
+    }
+
+    .pin span { transform: rotate(45deg); color: #fff; font-size: 11px; font-weight: 950; }
+    .pin.p1 { left: 46%; top: 8%; }
+    .pin.p2 { left: 56%; top: 25%; }
+    .pin.p3 { left: 30%; top: 35%; }
+    .pin.p4 { left: 68%; top: 42%; }
+    .pin.p5 { left: 22%; top: 58%; }
+    .pin.p6 { left: 52%; top: 67%; }
+    .pin.p7 { left: 72%; top: 76%; }
+
+    .spot-list { display: grid; gap: 10px; margin-top: 12px; }
+
+    .spot-card {
+      display: grid;
+      grid-template-columns: 74px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 9px;
+      text-align: left;
+    }
+
+    .thumb {
+      width: 74px;
+      height: 58px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .spot-card h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .spot-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0; }
+    .tag { padding: 6px 10px; border-radius: 999px; background: #f6eadb; color: #5e5148; font-size: 12px; font-weight: 800; }
+    .tag.hot { background: var(--pink); color: #fff; }
+
+    .detail-cover {
+      margin-top: 8px;
+      min-height: 352px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background: var(--cover, url("assets/乔家大院主甬道.jpg")) center / cover;
+      box-shadow: 0 14px 32px rgba(72, 46, 23, .16);
+    }
+
+    .detail-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 10, 8, .06) 18%, rgba(0, 0, 0, .64)); }
+    .big-no { position: absolute; left: 16px; top: 14px; z-index: 1; font-size: clamp(34px, 10vw, 46px); line-height: 1; color: #ff8fad; font-weight: 950; }
+    .cover-label { position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 1; color: #fff; }
+    .cover-label h1 { margin: 0 0 8px; font-size: 24px; font-weight: 950; }
+
+    .photo-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(68px, 1fr)); gap: 7px; margin: 10px 0 16px; }
+    .photo-strip img { width: 100%; aspect-ratio: 1; border-radius: 10px; object-fit: cover; border: 2px solid #fff; box-shadow: 0 8px 16px rgba(72, 46, 23, .11); cursor: pointer; }
+    .photo-strip img.active { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(239, 93, 142, .18), 0 8px 16px rgba(72, 46, 23, .11); }
+
+    .info-box { padding: 15px; margin-bottom: 12px; }
+    .info-box h2 { margin: 0 0 10px; font-size: 15px; font-weight: 950; }
+    .info-row { display: flex; gap: 10px; margin: 8px 0; font-size: 13px; line-height: 1.55; }
+
+    .masonry { columns: 2; column-gap: 10px; margin-top: 12px; }
+    .masonry figure { break-inside: avoid; margin: 0 0 10px; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 10px 22px rgba(75, 47, 19, .1); position: relative; }
+    .masonry img { width: 100%; display: block; object-fit: cover; }
+    .masonry figcaption { padding: 8px 9px 10px; font-size: 13px; color: #332d28; font-weight: 900; }
+    .masonry figure.active { outline: 3px solid var(--pink); outline-offset: -3px; }
+
+    .delete-photo {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(20, 16, 13, .72);
+      color: #fff;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .upload-card {
+      margin: 12px 0 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .upload-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #ffe6ef;
+      color: var(--pink);
+      font-size: 24px;
+      font-weight: 950;
+    }
+
+    .upload-card h2 {
+      margin: 0 0 3px;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .upload-card input { display: none; }
+
+    .upload-btn {
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--yellow);
+      font-size: 12px;
+      font-weight: 950;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 12px; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .chip { flex: 0 0 auto; min-height: 34px; padding: 0 14px; border-radius: 999px; background: #f4e8dc; font-size: 13px; font-weight: 850; }
+    .chip.active { background: var(--pink); color: #fff; }
+
+    .guide-stack { display: grid; gap: 12px; margin-top: 12px; }
+    .guide-section { padding: 14px; position: relative; overflow: hidden; }
+    .guide-section::before {
+      content: attr(data-label);
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 11px;
+      border-radius: 999px;
+      background: #ff8eae;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 950;
+      margin-bottom: 9px;
+    }
+    .guide-section p,
+    .guide-section li { font-size: 13px; line-height: 1.65; color: #4e453d; }
+    .guide-section ul { margin: 6px 0 0; padding-left: 18px; }
+
+    .keyword-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .keyword-cloud a {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #fff3e5;
+      color: #6a5547;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .route-steps {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .route-steps div {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 8px;
+      align-items: start;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #4e453d;
+    }
+
+    .route-steps b {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+    }
+
+    .success-wrap { min-height: calc(100vh - 180px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 10px; }
+    .polaroid { width: min(86%, 285px); margin: 20px auto 18px; padding: 12px 12px 22px; background: #fff; transform: rotate(-5deg); box-shadow: 0 18px 36px rgba(62, 38, 15, .18); }
+    .polaroid img { width: 100%; height: 210px; object-fit: cover; display: block; }
+    .polaroid p { margin: 12px 0 0; font-size: 15px; font-weight: 900; }
+    .share-icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; margin: 16px 0 22px; }
+    .share { display: grid; place-items: center; gap: 6px; font-size: 11px; color: #665a52; font-weight: 750; }
+    .share span { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 17px; box-shadow: 0 10px 18px rgba(55, 34, 12, .12); }
+    .share-tip {
+      min-height: 20px;
+      margin: -4px 0 12px;
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .share-output {
+      width: 100%;
+      display: none;
+      margin: 4px 0 16px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 22px rgba(75, 47, 19, .1);
+    }
+
+    .share-output.show { display: block; }
+    .share-output img { width: 100%; border-radius: 10px; display: block; }
+    .share-output a {
+      margin-top: 10px;
+      min-height: 38px;
+      border-radius: 999px;
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .share-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .share-actions button,
+    .share-actions a {
+      min-height: 38px;
+      border-radius: 999px;
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .share-actions button {
+      border: 0;
+    }
+
+    .share-output p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+      text-align: center;
+    }
+
+    .image-modal {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      background: rgba(18, 14, 12, .9);
+      padding: 18px;
+      overflow-y: auto;
+    }
+
+    .image-modal.show { display: block; }
+    .image-modal img { width: 100%; border-radius: 14px; display: block; margin: 52px 0 14px; }
+    .image-modal p { color: #fff; text-align: center; font-size: 13px; font-weight: 800; }
+    .modal-close {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 950;
+    }
+
+    .toast {
+      position: absolute;
+      left: 50%;
+      bottom: 92px;
+      transform: translate(-50%, 12px);
+      max-width: calc(100% - 44px);
+      padding: 11px 15px;
+      border-radius: 999px;
+      background: rgba(27, 23, 20, .88);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 850;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s ease, transform .22s ease;
+      z-index: 9;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    .album { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; }
+    .album img { width: 100%; aspect-ratio: 1; border-radius: 9px; object-fit: cover; }
+
+    .bottom-nav {
+      position: absolute;
+      left: 13px;
+      right: 13px;
+      bottom: 13px;
+      height: 66px;
+      padding: 7px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      background: rgba(255, 252, 247, .9);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(62, 42, 22, .1);
+      border-radius: 22px;
+      box-shadow: 0 16px 38px rgba(70, 45, 18, .18);
+      z-index: 5;
+    }
+
+    .nav-btn { border-radius: 16px; background: transparent; display: grid; place-items: center; gap: 2px; min-width: 0; color: #74685f; font-size: 10px; font-weight: 850; }
+    .nav-btn b { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; font-size: 15px; }
+    .nav-btn.active { background: #ffe9b0; color: #1e1c19; }
+    .nav-btn.active b { background: var(--yellow); }
+
+    .floating { position: fixed; left: 50%; bottom: 98px; transform: translateX(-50%); width: min(calc(100vw - 62px), 352px); z-index: 6; pointer-events: none; }
+    .floating .cta { pointer-events: auto; }
+    .hidden { display: none; }
+
+    @media (min-width: 700px) {
+      body { padding: 28px; }
+      .phone { min-height: 860px; }
+      .app { min-height: 860px; }
+      .floating { width: 352px; }
+    }
+
+    @media (max-width: 360px) {
+      body { padding: 8px; }
+      .phone,
+      .app { min-height: calc(100vh - 16px); }
+      .screen { padding-left: 12px; padding-right: 12px; }
+      .home { padding-left: 0; padding-right: 0; }
+      .map-hero h1,
+      .page-heading { font-size: 28px; }
+      .hero-title { font-size: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone" aria-label="乔家大院电影机位打卡 H5">
+    <div class="app">
+      <div class="status"><span>9:41</span><span>••• 5G ▰</span></div>
+
+      <div class="topbar">
+        <button class="icon-btn" type="button" data-back aria-label="返回">‹</button>
+        <div class="top-title" data-app-title>电影机位打卡</div>
+        <button class="icon-btn" type="button" aria-label="更多">•••</button>
+      </div>
+
+      <section class="screens">
+        <article class="screen home active" data-screen="home" data-page-title="乔家大院">
+          <div class="hero">
+            <div class="hero-inner">
+              <h1 class="hero-title">乔家大院</h1>
+              <div class="paint-badge">《大红灯笼高高挂》电影机位</div>
+              <div class="paint-badge secondary">躲出片 · 够晋味</div>
+            </div>
+            <div class="down-note">滑动开启乔家之旅</div>
+            <div class="intro-card">
+              <h2>为什么来乔家大院？</h2>
+              <div class="pill-list">
+                <div class="reason"><span class="dot">1</span>晋商文化地标，院落层层递进</div>
+                <div class="reason"><span class="dot">2</span>古建院景浓郁，红灯笼超上镜</div>
+                <div class="reason"><span class="dot">3</span>随手一拍就是大院感大片</div>
+                <div class="reason"><span class="dot">4</span>留出片的晋风氛围照</div>
+              </div>
+              <button class="cta intro-action" type="button" data-jump="detail">开始探索机位</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="screen" data-screen="detail" data-page-title="机位详情">
+          <div class="tags" data-detail-tags></div>
+          <div class="detail-cover" data-detail-cover>
+            <div class="big-no" data-detail-no>01</div>
+            <div class="cover-label">
+              <h1 data-detail-title>乔家大院主甬道</h1>
+              <p class="small" data-detail-desc style="color:rgba(255,255,255,.86);">用长甬道拍出入院仪式感。</p>
+            </div>
+          </div>
+          <div class="photo-strip" data-photo-strip></div>
+          <div class="info-box panel">
+            <h2>拍摄建议</h2>
+            <div class="info-row"><span>◎</span><span data-detail-pose></span></div>
+            <div class="info-row"><span>◎</span><span data-detail-frame></span></div>
+            <div class="info-row"><span>◎</span><span data-detail-time></span></div>
+          </div>
+        </article>
+
+        <article class="screen" data-screen="inspire" data-page-title="拍照灵感">
+          <h1 class="page-heading">拍照灵感</h1>
+          <p class="small" style="text-align:center;margin-bottom:14px;">参考机位图，也可以上传你的作品</p>
+          <div class="tabs" role="tablist" aria-label="灵感分类">
+            <button class="chip active" type="button">全部</button>
+            <button class="chip" type="button">门框</button>
+            <button class="chip" type="button">灯笼</button>
+            <button class="chip" type="button">纵深</button>
+            <button class="chip" type="button">背影</button>
+          </div>
+          <label class="upload-card panel">
+            <span class="upload-icon">＋</span>
+            <span>
+              <h2>上传我的打卡照片</h2>
+              <p class="small">可选择多张，上传后会出现在下方图册</p>
+            </span>
+            <span class="upload-btn">选择照片</span>
+            <input type="file" accept="image/*" multiple data-upload>
+          </label>
+          <div class="masonry" data-inspire-list></div>
+        </article>
+
+        <article class="screen" data-screen="guide" data-page-title="游玩攻略">
+          <h1 class="page-heading">乔家大院游玩攻略</h1>
+          <p class="small" style="text-align:center;margin-bottom:14px;">拍照路线、电影机位、汉服摄影和红灯笼打卡</p>
+          <div class="guide-stack">
+            <section class="guide-section panel" data-label="拍照打卡亮点">
+              <p>这份乔家大院拍照攻略适合想拍古建筑电影感、红灯笼机位和汉服照片的游客。路线以在中堂院落为核心，把乔家大院打卡攻略、摄影机位和中式庭院拍照灵感整理成一条顺路好拍的游览动线。</p>
+              <div class="keyword-cloud" aria-label="乔家大院拍照攻略关键词">
+                <a href="photo-guide.html">乔家大院拍照攻略</a>
+                <a href="checkin-guide.html">乔家大院打卡攻略</a>
+                <a href="photo-route.html">乔家大院拍照路线</a>
+                <a href="jinshang-photography.html">晋商大院摄影</a>
+                <a href="shanxi-ancient-architecture.html">山西最出片古建筑</a>
+              </div>
+            </section>
+            <section class="guide-section panel" data-label="推荐拍照路线">
+              <div class="route-steps">
+                <div><b>1</b><span>主甬道：先拍开场感，适合背影、同行照和中轴线构图。</span></div>
+                <div><b>2</b><span>第一院门口照壁：墙面纹样很出片，适合汉服、旗袍和半身人像。</span></div>
+                <div><b>3</b><span>在中堂一院：重点拍红灯笼前景，画面最有乔家大院电影机位的氛围。</span></div>
+                <div><b>4</b><span>明楼院与百寿图：补充侧脸、局部特写和古建筑细节。</span></div>
+                <div><b>5</b><span>甬道与阁楼、第四院：作为收尾镜头，拍出晋商大院摄影的院落纵深。</span></div>
+              </div>
+            </section>
+            <section class="guide-section panel" data-label="出片小技巧">
+              <ul>
+                <li>优先找门洞、屋檐、灰墙、红灯笼和中轴线，画面更有古建筑电影感。</li>
+                <li>低机位拍屋檐，人物站在画面中心偏下，更能突出乔家大院摄影机位的空间感。</li>
+                <li>汉服拍照建议选择黑、白、墨绿、酒红或素色长裙，和灰砖红灯笼更协调。</li>
+              </ul>
+            </section>
+            <section class="guide-section panel" data-label="常见问题">
+              <ul>
+                <li>哪里最适合拍照？主甬道、在中堂一院、红灯笼院落、照壁和百寿图都适合打卡。</li>
+                <li>怎么拍出电影感？用门洞套门洞、红灯笼前景、中轴线站位和低机位屋檐。</li>
+                <li>适合汉服拍照吗？适合，灰砖院落、晋商大院建筑和红灯笼很适合汉服、旗袍与中式庭院拍照。</li>
+              </ul>
+            </section>
+            <section class="guide-section panel" data-label="游玩注意事项">
+              <ul>
+                <li>室内和文物区域不要打闪光灯，拍摄前留意现场提示。</li>
+                <li>红灯笼和院落适合阴天或下午柔光，人多时蹲低机位避开游客头部。</li>
+                <li>想拍乔家大院打卡攻略同款照片，建议先拍主线机位，再补偏院和细节。</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="screen" data-screen="share" data-page-title="打卡成功">
+          <div class="success-wrap">
+            <h1 class="page-heading">打卡成功</h1>
+            <div class="polaroid">
+              <img data-share-img src="assets/乔家大院主甬道.jpg" alt="乔家大院打卡照片">
+              <p data-share-text>我在乔家大院拍到电影同款机位！</p>
+            </div>
+            <p class="small" style="font-weight:900;color:#4b413a;">保存打卡图后分享你的红灯笼瞬间</p>
+            <div class="share-icons">
+              <button class="share" type="button" data-share-channel="wechat"><span style="background:#31c465;">微</span>微信好友</button>
+              <button class="share" type="button" data-share-channel="moments"><span style="background:#7e8df5;">圈</span>朋友圈</button>
+              <button class="share" type="button" data-share-channel="weibo"><span style="background:#ff7d4f;">博</span>微博</button>
+              <button class="share" type="button" data-share-channel="redbook"><span style="background:#ff4c6d;">书</span>小红书</button>
+            </div>
+            <div class="share-tip" data-share-tip></div>
+            <div class="share-output" data-share-output></div>
+            <h2 class="section-title" style="align-self:flex-start;margin-bottom:10px;">加入打卡墙</h2>
+            <div class="album" data-album></div>
+          </div>
+        </article>
+      </section>
+
+      <div class="floating hidden" data-floating>
+        <button class="cta" type="button" data-primary>查看当前机位</button>
+      </div>
+
+      <nav class="bottom-nav hidden" data-bottom-nav aria-label="页面导航">
+        <button class="nav-btn active" type="button" data-nav="home"><b>⌂</b>首页</button>
+        <button class="nav-btn" type="button" data-nav="detail"><b>▣</b>机位</button>
+        <button class="nav-btn" type="button" data-nav="inspire"><b>▦</b>灵感</button>
+        <button class="nav-btn" type="button" data-nav="guide"><b>ⓘ</b>攻略</button>
+        <button class="nav-btn" type="button" data-nav="share"><b>◎</b>分享</button>
+      </nav>
+      <div class="toast" data-toast></div>
+      <div class="image-modal" data-image-modal>
+        <button class="modal-close" type="button" data-close-modal aria-label="关闭">×</button>
+        <img data-modal-img alt="打卡分享大图">
+        <p>右键图片或长按图片保存到本地，再分享到朋友圈。</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const imagePool = [
+      "assets/乔家大院主甬道.jpg",
+      "assets/在中堂第一院门口照壁.jpg",
+      "assets/在中堂一院.png",
+      "assets/明楼院.png",
+      "assets/百寿图.jpg",
+      "assets/大院的甬道与阁楼.jpg",
+      "assets/在中堂第四院.png"
+    ];
+
+    const imageMeta = {
+      [imagePool[0]]: {
+        title: "乔家大院主甬道",
+        desc: "用长甬道拍出入院仪式感。"
+      },
+      [imagePool[1]]: {
+        title: "在中堂第一院门口照壁",
+        desc: "照壁适合拍端正、安静的到此一站。"
+      },
+      [imagePool[2]]: {
+        title: "在中堂一院",
+        desc: "院落正中适合拍红灯笼和大宅气场。"
+      },
+      [imagePool[3]]: {
+        title: "明楼院",
+        desc: "楼院层次丰富，适合拍门楼和人物比例。"
+      },
+      [imagePool[4]]: {
+        title: "百寿图",
+        desc: "细节墙面适合拍文化感和局部特写。"
+      },
+      [imagePool[5]]: {
+        title: "大院的甬道与阁楼",
+        desc: "适合拍穿行感和院落转场。"
+      },
+      [imagePool[6]]: {
+        title: "在中堂第四院",
+        desc: "最后补一张院落收束视角。"
+      }
+    };
+
+    const spots = [
+      {
+        title: "乔家大院主甬道",
+        image: imagePool[0],
+        desc: "用长甬道拍出入院仪式感。",
+        tags: ["甬道", "纵深", "背影"],
+        pose: "人物走在甬道中线，身体微侧或背对镜头，动作越少越有电影感。",
+        frame: "把两侧墙面和地面线条收进来，用道路把视线带向远处。",
+        time: "上午人少时先拍，画面更干净。"
+      },
+      {
+        title: "第一院门口照壁",
+        image: imagePool[1],
+        desc: "照壁适合拍端正、安静的到此一站。",
+        tags: ["照壁", "正面", "到达感"],
+        pose: "人物站在照壁前偏一侧，手部自然交叠，避免挡住纹样。",
+        frame: "照壁占画面中心，人物放在三分线位置，保留上方屋檐。",
+        time: "阴天或柔光更适合表现砖雕细节。"
+      },
+      {
+        title: "在中堂一院",
+        image: imagePool[2],
+        desc: "院落正中适合拍红灯笼和大宅气场。",
+        tags: ["一院", "中轴线", "灯笼"],
+        pose: "人物站在院中央或灯笼下方，微微回头，不要做太满的动作。",
+        frame: "左右屋檐尽量对称，低机位能让灯笼和门楼更有压迫感。",
+        time: "下午 15:00 后光线更柔和，红灯笼颜色更稳。"
+      },
+      {
+        title: "明楼院",
+        image: imagePool[3],
+        desc: "楼院层次丰富，适合拍门楼和人物比例。",
+        tags: ["楼院", "层次", "门楼"],
+        pose: "人物站在门楼下方，身体小一点，让建筑成为主角。",
+        frame: "保留完整屋檐和门楼轮廓，人物放在画面下三分之一。",
+        time: "避开正午强光，楼檐阴影会更好看。"
+      },
+      {
+        title: "百寿图",
+        image: imagePool[4],
+        desc: "细节墙面适合拍文化感和局部特写。",
+        tags: ["百寿图", "细节", "特写"],
+        pose: "人物侧身站，手轻扶衣袖或看向墙面，减少游客照感。",
+        frame: "用墙面纹样做背景，拍半身或侧脸，画面更安静。",
+        time: "光线均匀时拍纹样，不容易过曝。"
+      },
+      {
+        title: "甬道与阁楼",
+        image: imagePool[5],
+        desc: "适合拍穿行感和院落转场。",
+        tags: ["转场", "阁楼", "走动"],
+        pose: "让人物从画面一侧走入，摄影师稍微蹲低连拍。",
+        frame: "阁楼放在画面上方，地面和墙面形成引导线。",
+        time: "人流经过时等一小段空档，拍出来更像电影空镜。"
+      },
+      {
+        title: "在中堂第四院",
+        image: imagePool[6],
+        desc: "最后补一张院落收束视角。",
+        tags: ["第四院", "收束", "门框"],
+        pose: "人物背对镜头走向院内，衣摆自然一点。",
+        frame: "门框在正中，地面线条把视线带进去，画面不要裁掉屋檐。",
+        time: "傍晚柔光更适合拍收尾氛围。"
+      }
+    ];
+
+    const order = ["home", "detail", "inspire", "guide", "share"];
+    const screens = [...document.querySelectorAll("[data-screen]")];
+    const navButtons = [...document.querySelectorAll("[data-nav]")];
+    const title = document.querySelector("[data-app-title]");
+    const primary = document.querySelector("[data-primary]");
+    const floating = document.querySelector("[data-floating]");
+    const bottomNav = document.querySelector("[data-bottom-nav]");
+    let current = "home";
+    let selectedSpot = 0;
+    let selectedDetailImage = "";
+    let selectedShare = {
+      title: "乔家大院主甬道",
+      src: imagePool[0]
+    };
+    let latestShareCard = null;
+    const uploadedPhotos = loadSavedPhotos();
+
+    function renderDetail() {
+      const spot = spots[selectedSpot];
+      selectedDetailImage = spot.image;
+      const detailMeta = { title: spot.title, desc: spot.desc };
+      document.querySelector("[data-detail-tags]").innerHTML = spot.tags.map((tag, index) => `<span class="tag ${index === 0 ? "hot" : ""}">${tag}</span>`).join("");
+      document.querySelector("[data-detail-cover]").style.setProperty("--cover", `url("${selectedDetailImage}")`);
+      document.querySelector("[data-detail-no]").textContent = String(selectedSpot + 1).padStart(2, "0");
+      document.querySelector("[data-detail-title]").textContent = detailMeta.title;
+      document.querySelector("[data-detail-desc]").textContent = detailMeta.desc;
+      document.querySelector("[data-detail-pose]").textContent = spot.pose;
+      document.querySelector("[data-detail-frame]").textContent = spot.frame;
+      document.querySelector("[data-detail-time]").textContent = spot.time;
+      document.querySelector("[data-photo-strip]").innerHTML = spots.map((item, index) => `<img class="${index === selectedSpot ? "active" : ""}" src="${item.image}" alt="${item.title}" data-spot-thumb="${index}">`).join("");
+      document.querySelector("[data-share-img]").src = selectedDetailImage;
+      document.querySelector("[data-share-text]").textContent = `我在乔家大院打卡：${detailMeta.title}`;
+      selectedShare = { title: detailMeta.title, src: selectedDetailImage };
+    }
+
+    function renderInspiration() {
+      const ideas = [
+        ["乔家大院主甬道", imagePool[0]],
+        ["在中堂第一院门口照壁", imagePool[1]],
+        ["在中堂一院", imagePool[2]],
+        ["明楼院", imagePool[3]],
+        ["百寿图", imagePool[4]],
+        ["大院的甬道与阁楼", imagePool[5]],
+        ["在中堂第四院", imagePool[6]],
+        ...uploadedPhotos
+      ];
+      document.querySelector("[data-inspire-list]").innerHTML = ideas.map((item) => `
+        <figure>
+          ${item[2] === "upload" ? `<button class="delete-photo" type="button" aria-label="删除图片" data-delete-photo="${item[3]}">×</button>` : ""}
+          <img src="${item[1]}" alt="" data-inspire-pick="${item[1]}" data-inspire-title="${item[0]}">
+          <figcaption>${item[0]}</figcaption>
+        </figure>
+      `).join("");
+      document.querySelectorAll("[data-inspire-pick]").forEach((img) => {
+        img.closest("figure").classList.toggle("active", img.dataset.inspirePick === selectedShare.src);
+      });
+    }
+
+    function renderAlbum() {
+      document.querySelector("[data-album]").innerHTML = spots.slice(0, 6).map((spot) => `<img src="${spot.image}" alt="">`).join("");
+    }
+
+    function selectSpot(index) {
+      selectedSpot = Number(index);
+      selectedDetailImage = spots[selectedSpot].image;
+      renderDetail();
+      go("detail");
+    }
+
+    function go(name) {
+      if (!order.includes(name)) name = "home";
+      current = name;
+      screens.forEach((screen) => {
+        const active = screen.dataset.screen === name;
+        screen.classList.toggle("active", active);
+        if (active) screen.scrollTop = 0;
+      });
+      navButtons.forEach((btn) => btn.classList.toggle("active", btn.dataset.nav === name));
+      const activeScreen = screens.find((screen) => screen.dataset.screen === name);
+      title.textContent = activeScreen?.dataset.pageTitle || "乔家大院";
+      primary.textContent = {
+        home: "开始找电影机位",
+        detail: "去看拍照灵感",
+        inspire: "生成打卡卡片",
+        guide: "回到机位详情",
+        share: "再打卡其他机位"
+      }[name];
+      primary.classList.toggle("pink", name === "detail" || name === "inspire");
+      floating.classList.toggle("hidden", true);
+      bottomNav.classList.toggle("hidden", name === "home");
+    }
+
+    function goFromHash() {
+      const target = location.hash.replace("#", "");
+      if (order.includes(target)) go(target);
+    }
+
+    renderDetail();
+    renderInspiration();
+    renderAlbum();
+    goFromHash();
+
+    document.addEventListener("click", (event) => {
+      const jumpButton = event.target.closest("[data-jump]");
+      if (jumpButton) go(jumpButton.dataset.jump);
+      const detailImage = event.target.closest("[data-detail-image]");
+      if (detailImage) {
+        selectedDetailImage = detailImage.dataset.detailImage;
+        renderDetail();
+      }
+      const spotThumb = event.target.closest("[data-spot-thumb]");
+      if (spotThumb) {
+        selectedSpot = Number(spotThumb.dataset.spotThumb);
+        selectedDetailImage = spots[selectedSpot].image;
+        renderDetail();
+      }
+      const deleteButton = event.target.closest("[data-delete-photo]");
+      if (deleteButton) {
+        const index = Number(deleteButton.dataset.deletePhoto);
+        const [removed] = uploadedPhotos.splice(index, 1);
+        if (removed?.[1]?.startsWith("blob:")) URL.revokeObjectURL(removed[1]);
+        saveUploadedPhotos();
+        if (removed?.[1] === selectedShare.src) {
+          selectedShare = { title: spots[selectedSpot].title, src: selectedDetailImage || spots[selectedSpot].image };
+          updateShareView();
+        }
+        renderInspiration();
+      }
+      const inspirePick = event.target.closest("[data-inspire-pick]");
+      if (inspirePick) {
+        selectedShare = {
+          title: inspirePick.dataset.inspireTitle,
+          src: inspirePick.dataset.inspirePick
+        };
+        updateShareView();
+        renderInspiration();
+        go("share");
+      }
+      const shareButton = event.target.closest("[data-share-channel]");
+      if (shareButton) shareTo(shareButton.dataset.shareChannel);
+      const copyButton = event.target.closest("[data-copy-card]");
+      if (copyButton) copyShareCard();
+      const openButton = event.target.closest("[data-open-card]");
+      if (openButton && latestShareCard) openImageModal(latestShareCard.url);
+      const closeModal = event.target.closest("[data-close-modal]");
+      if (closeModal) document.querySelector("[data-image-modal]").classList.remove("show");
+    });
+
+    navButtons.forEach((btn) => btn.addEventListener("click", () => go(btn.dataset.nav)));
+    window.addEventListener("hashchange", goFromHash);
+    document.querySelector("[data-back]").addEventListener("click", () => {
+      const index = order.indexOf(current);
+      go(index > 0 ? order[index - 1] : "home");
+    });
+    primary.addEventListener("click", () => {
+      const next = { detail: "inspire", inspire: "share", guide: "detail", share: "detail" }[current] || "detail";
+      go(next);
+    });
+    document.querySelector("[data-upload]").addEventListener("change", (event) => {
+      const files = [...event.target.files].filter((file) => file.type.startsWith("image/"));
+      files.forEach((file) => {
+        if (!file.type.startsWith("image/")) return;
+        const item = [file.name.replace(/\.[^.]+$/, ""), "", "upload", 0];
+        compressImageFile(file).then((dataUrl) => {
+          item[1] = dataUrl;
+          uploadedPhotos.unshift(item);
+          uploadedPhotos.forEach((photo, index) => photo[3] = index);
+          selectedShare = { title: item[0], src: item[1] };
+          saveUploadedPhotos();
+          updateShareView();
+          renderInspiration();
+        }).catch(() => {
+          const toast = document.querySelector("[data-toast]");
+          toast.textContent = "图片保存失败，请换一张再试";
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 1800);
+        });
+      });
+      event.target.value = "";
+    });
+    document.querySelectorAll(".chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        document.querySelectorAll(".chip").forEach((item) => item.classList.remove("active"));
+        chip.classList.add("active");
+      });
+    });
+
+    async function shareTo(channel) {
+      const currentTitle = document.querySelector("[data-share-text]").textContent;
+      const tip = document.querySelector("[data-share-tip]");
+      const channelName = {
+        wechat: "微信好友",
+        moments: "朋友圈",
+        weibo: "微博",
+        redbook: "小红书"
+      }[channel] || "分享";
+
+      try {
+        const title = currentTitle.replace(/^我在乔家大院打卡：/, "");
+        const fileName = `乔家大院打卡-${title.replace(/[\\/:*?"<>|]/g, "")}.png`;
+        const imageBlob = await createSharePng(title);
+        renderShareOutput(imageBlob, fileName);
+
+        if (channel === "weibo") {
+          window.open("https://weibo.com/", "_blank", "noopener,noreferrer");
+          showShareFeedback("已生成打卡图，并打开微博");
+          return;
+        }
+
+        showShareFeedback(`已生成打卡图片，可保存后发到${channelName}`);
+      } catch (error) {
+        showShareFeedback("生成图片失败，请稍后再试");
+      }
+
+      function showShareFeedback(message) {
+        tip.textContent = message;
+        const toast = document.querySelector("[data-toast]");
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(showShareFeedback.timer);
+        showShareFeedback.timer = setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+    }
+
+    async function createSharePng(title) {
+      const img = document.querySelector("[data-share-img]");
+      const text = document.querySelector("[data-share-text]").textContent;
+      const source = await loadImage(img.getAttribute("src"));
+      const canvas = document.createElement("canvas");
+      canvas.width = 900;
+      canvas.height = 1280;
+      const ctx = canvas.getContext("2d");
+
+      const bg = ctx.createLinearGradient(0, 0, 900, 1280);
+      bg.addColorStop(0, "#fff8ec");
+      bg.addColorStop(1, "#f7eadc");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, 900, 1280);
+
+      drawRoundedImage(ctx, source, 58, 72, 784, 760, 24);
+      ctx.fillStyle = "rgba(0,0,0,.34)";
+      roundedRect(ctx, 58, 72, 784, 760, 24);
+      ctx.fill();
+
+      ctx.fillStyle = "#fff";
+      ctx.font = "900 86px Microsoft YaHei, PingFang SC, sans-serif";
+      ctx.fillText("乔家大院", 96, 188);
+
+      roundedRect(ctx, 96, 232, 430, 72, 36);
+      ctx.fillStyle = "#ffd83d";
+      ctx.fill();
+      ctx.fillStyle = "#17130f";
+      ctx.font = "900 34px Microsoft YaHei, PingFang SC, sans-serif";
+      ctx.fillText("拍照打卡成功", 132, 279);
+
+      ctx.save();
+      ctx.translate(98, 790);
+      ctx.rotate(-4 * Math.PI / 180);
+      ctx.shadowColor = "rgba(62, 38, 15, .22)";
+      ctx.shadowBlur = 28;
+      ctx.shadowOffsetY = 18;
+      roundedRect(ctx, 0, 0, 704, 320, 12);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+      ctx.shadowColor = "transparent";
+      drawCoverImage(ctx, source, 24, 24, 656, 214);
+      ctx.fillStyle = "#221b16";
+      ctx.font = "900 30px Microsoft YaHei, PingFang SC, sans-serif";
+      wrapText(ctx, text, 28, 280, 650, 38, 2);
+      ctx.restore();
+
+      ctx.fillStyle = "#6b5d53";
+      ctx.font = "700 28px Microsoft YaHei, PingFang SC, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("保存图片 · 分享我的红灯笼瞬间", 450, 1190);
+      ctx.fillStyle = "#ef5d8e";
+      ctx.font = "900 26px Microsoft YaHei, PingFang SC, sans-serif";
+      ctx.fillText(title, 450, 1235);
+      ctx.textAlign = "left";
+
+      return new Promise((resolve, reject) => {
+        canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("生成图片失败")), "image/png", 0.95);
+      });
+    }
+
+    function renderShareOutput(imageBlob, fileName) {
+      const output = document.querySelector("[data-share-output]");
+      if (latestShareCard?.url?.startsWith("blob:")) URL.revokeObjectURL(latestShareCard.url);
+      const imageUrl = URL.createObjectURL(imageBlob);
+      latestShareCard = { url: imageUrl, fileName, blob: imageBlob };
+      output.classList.add("show");
+      output.innerHTML = `
+        <img src="${imageUrl}" alt="生成的乔家大院打卡分享图">
+        <div class="share-actions">
+          <button type="button" data-open-card>打开大图保存</button>
+        </div>
+        <p>点击后会在当前页面打开大图，右键或长按图片保存。</p>
+      `;
+    }
+
+    function openImageModal(imageUrl) {
+      document.querySelector("[data-modal-img]").src = imageUrl;
+      document.querySelector("[data-image-modal]").classList.add("show");
+    }
+
+    function loadSavedPhotos() {
+      try {
+        const saved = JSON.parse(localStorage.getItem("qiaoUploadedPhotos") || "[]");
+        return Array.isArray(saved)
+          ? saved.map((item, index) => [item.title, item.src, "upload", index]).filter((item) => item[0] && item[1])
+          : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveUploadedPhotos() {
+      const payload = uploadedPhotos.map((item) => ({ title: item[0], src: item[1] }));
+      try {
+        localStorage.setItem("qiaoUploadedPhotos", JSON.stringify(payload));
+      } catch (error) {
+        const toast = document.querySelector("[data-toast]");
+        toast.textContent = "本地空间不足，部分照片可能无法保存";
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+    }
+
+    function compressImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = reject;
+        reader.onload = () => {
+          const image = new Image();
+          image.onerror = reject;
+          image.onload = () => {
+            const maxSide = 1200;
+            const scale = Math.min(1, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
+            const width = Math.max(1, Math.round(image.naturalWidth * scale));
+            const height = Math.max(1, Math.round(image.naturalHeight * scale));
+            const canvas = document.createElement("canvas");
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(image, 0, 0, width, height);
+            resolve(canvas.toDataURL("image/jpeg", 0.82));
+          };
+          image.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function copyShareCard() {
+      const tip = document.querySelector("[data-share-tip]");
+      const toast = document.querySelector("[data-toast]");
+      try {
+        if (!latestShareCard?.blob || !navigator.clipboard?.write || !window.ClipboardItem) {
+          throw new Error("clipboard image unsupported");
+        }
+        await navigator.clipboard.write([
+          new ClipboardItem({ "image/png": latestShareCard.blob })
+        ]);
+        tip.textContent = "已复制图片，可粘贴到聊天窗口";
+        toast.textContent = "已复制图片";
+      } catch (error) {
+        tip.textContent = "当前浏览器不支持复制图片，请点“打开大图保存”";
+        toast.textContent = "请打开大图保存";
+      }
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2000);
+    }
+
+    function updateShareView() {
+      document.querySelector("[data-share-img]").src = selectedShare.src;
+      document.querySelector("[data-share-text]").textContent = `我在乔家大院打卡：${selectedShare.title}`;
+      document.querySelector("[data-share-output]").classList.remove("show");
+      document.querySelector("[data-share-output]").innerHTML = "";
+      latestShareCard = null;
+    }
+
+    function loadImage(src) {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = reject;
+        image.src = src;
+      });
+    }
+
+    function drawRoundedImage(ctx, image, x, y, width, height, radius) {
+      ctx.save();
+      roundedRect(ctx, x, y, width, height, radius);
+      ctx.clip();
+      drawCoverImage(ctx, image, x, y, width, height);
+      ctx.restore();
+    }
+
+    function drawCoverImage(ctx, image, x, y, width, height) {
+      const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+      const drawWidth = image.naturalWidth * scale;
+      const drawHeight = image.naturalHeight * scale;
+      const drawX = x + (width - drawWidth) / 2;
+      const drawY = y + (height - drawHeight) / 2;
+      ctx.drawImage(image, drawX, drawY, drawWidth, drawHeight);
+    }
+
+    function roundedRect(ctx, x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
+      let line = "";
+      let lines = 1;
+      for (const char of text) {
+        const test = line + char;
+        if (ctx.measureText(test).width > maxWidth && line) {
+          ctx.fillText(line, x, y);
+          line = char;
+          y += lineHeight;
+          lines += 1;
+          if (lines > maxLines) return;
+        } else {
+          line = test;
+        }
+      }
+      if (line) ctx.fillText(line, x, y);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>乔家大院拍照攻略 H5</title>
+  <meta name="description" content="乔家大院拍照攻略，整理主甬道、照壁、院门、明楼院、百寿图等出片机位，包含光线、构图、姿势和避人流建议。">
+  <meta name="keywords" content="乔家大院拍照攻略,乔家大院摄影机位,乔家大院出片,山西古建拍照,红灯笼机位">
+  <style>
+    :root {
+      --ink: #211813;
+      --muted: #71665e;
+      --paper: #fff8ec;
+      --panel: rgba(255, 252, 246, .96);
+      --red: #b33224;
+      --teal: #1c6b66;
+      --gold: #d7a83f;
+      --blue: #395c8a;
+      --line: rgba(33, 24, 19, .13);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #eadfcd;
+      display: flex;
+      justify-content: center;
+    }
+    a { color: inherit; text-decoration: none; }
+    .h5 {
+      width: min(100%, 430px);
+      min-height: 100vh;
+      background: var(--paper);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 52px rgba(48, 32, 22, .18);
+    }
+    .hero {
+      min-height: 92vh;
+      color: #fff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: max(18px, env(safe-area-inset-top)) 18px 24px;
+      background:
+        linear-gradient(180deg, rgba(12, 10, 8, .18), rgba(12, 10, 8, .72)),
+        url("assets/乔家大院主甬道.jpg") center / cover;
+    }
+    .nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .18);
+      border: 1px solid rgba(255, 255, 255, .28);
+      backdrop-filter: blur(12px);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .nav .home-link {
+      background: rgba(255, 216, 61, .92);
+      color: #1b1714;
+      border-color: rgba(255, 216, 61, .95);
+    }
+    .nav a[aria-current="page"] { background: #fff; color: var(--red); }
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(179, 50, 36, .92);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin: 12px 0 10px;
+      font-size: 42px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .hero p {
+      width: min(100%, 330px);
+      margin: 0;
+      color: rgba(255, 255, 255, .9);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 650;
+    }
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .quick div {
+      min-height: 74px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, .42);
+    }
+    .quick strong {
+      display: block;
+      font-size: 18px;
+      color: var(--red);
+    }
+    .quick span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 750;
+    }
+    main { padding: 22px 16px 40px; }
+    section { margin: 0 0 26px; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .label {
+      flex: 0 0 auto;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .lead {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 650;
+    }
+    .spot {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 12px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .spot img {
+      width: 118px;
+      height: 142px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .spot h3 {
+      margin: 2px 0 6px;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+    .spot p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 620;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      padding: 5px 7px;
+      border-radius: 7px;
+      background: rgba(28, 107, 102, .1);
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 850;
+    }
+    .tips {
+      display: grid;
+      gap: 10px;
+    }
+    .tip {
+      padding: 14px;
+      border-radius: 8px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--gold);
+    }
+    .tip strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+    .tip span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+      font-weight: 650;
+    }
+    .checklist {
+      display: grid;
+      gap: 8px;
+    }
+    .check {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(179, 50, 36, .08);
+      border: 1px solid rgba(179, 50, 36, .16);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .check b {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      color: #fff;
+      font-size: 13px;
+    }
+    .bottom-link {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 900;
+    }
+    .bottom-actions {
+      display: grid;
+      gap: 10px;
+    }
+    .bottom-link.secondary {
+      background: #fffdf8;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 360px) {
+      h1 { font-size: 36px; }
+      .spot { grid-template-columns: 104px 1fr; }
+      .spot img { width: 104px; height: 134px; }
+      .quick { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="h5">
+    <header class="hero">
+      <nav class="nav" aria-label="专题导航">
+        <a class="home-link" href="index.html#guide">返回乔家大院 H5</a>
+        <a href="photo-guide.html" aria-current="page">拍照攻略</a>
+        <a href="checkin-guide.html">打卡攻略</a>
+        <a href="photo-route.html">拍照路线</a>
+        <a href="jinshang-photography.html">晋商摄影</a>
+        <a href="shanxi-ancient-architecture.html">山西古建</a>
+      </nav>
+      <div>
+        <span class="kicker">乔家大院怎么拍才出片</span>
+        <h1>乔家大院拍照攻略</h1>
+        <p>把大院拍好，核心不是“站到景点前合影”，而是抓门洞、长廊、灯笼、砖雕和院落纵深。先找线条，再等人少，画面立刻有晋商大院的厚重感。</p>
+        <div class="quick">
+          <div><strong>7</strong><span>个必拍机位</span></div>
+          <div><strong>2h</strong><span>轻松拍完</span></div>
+          <div><strong>早晚</strong><span>光线更柔</span></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="section-head">
+          <h2>必拍机位</h2>
+          <span class="label">按出片率排序</span>
+        </div>
+        <article class="spot">
+          <img src="assets/乔家大院主甬道.jpg" alt="乔家大院主甬道">
+          <div>
+            <h3>主甬道</h3>
+            <p>站在中线稍偏一侧，用墙线和屋檐做引导线。人走远一点，拍背影或侧身回头，画面有入院仪式感。</p>
+            <div class="tags"><span class="tag">纵深</span><span class="tag">背影</span><span class="tag">广角</span></div>
+          </div>
+        </article>
+        <article class="spot">
+          <img src="assets/在中堂第一院门口照壁.jpg" alt="在中堂第一院门口照壁">
+          <div>
+            <h3>第一院门口照壁</h3>
+            <p>适合拍正面定妆照。人离照壁 1.5 米左右，手机开 2 倍，避开广角变形，衣服纹理和砖雕都更稳。</p>
+            <div class="tags"><span class="tag">正面</span><span class="tag">汉服</span><span class="tag">砖雕</span></div>
+          </div>
+        </article>
+        <article class="spot">
+          <img src="assets/明楼院.png" alt="明楼院">
+          <div>
+            <h3>明楼院</h3>
+            <p>让楼体占画面上半部，人物放在门框或台阶边。抬一点机位，能拍出院落高低层次。</p>
+            <div class="tags"><span class="tag">楼阁</span><span class="tag">对称</span><span class="tag">层次</span></div>
+          </div>
+        </article>
+        <article class="spot">
+          <img src="assets/百寿图.jpg" alt="百寿图">
+          <div>
+            <h3>百寿图</h3>
+            <p>适合拍细节和半身。让人物侧身看向纹样，手部自然扶袖或拿扇，别把背景拍成纯打卡墙。</p>
+            <div class="tags"><span class="tag">细节</span><span class="tag">半身</span><span class="tag">纹样</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>现场怎么拍</h2>
+          <span class="label">少走弯路</span>
+        </div>
+        <p class="lead">乔家大院的美感来自“窄、深、密”：窄门洞、深院落、密集木构和砖雕。拍摄时尽量少用夸张滤镜，保留灰砖、木色和红灯笼的真实对比。</p>
+        <div class="tips">
+          <div class="tip"><strong>光线</strong><span>晴天避开正午硬光，上午先进甬道和门洞，下午拍院落侧光。阴天更适合拍砖雕和墙面细节。</span></div>
+          <div class="tip"><strong>构图</strong><span>优先找门框框景、屋檐斜线、甬道中线。人物不要站满画面，留出一半建筑空间才有大院感。</span></div>
+          <div class="tip"><strong>穿搭</strong><span>汉服、马面裙、深色大衣、白衬衫都适合。颜色建议选红、青、黑、米白，避开太亮的荧光色。</span></div>
+          <div class="tip"><strong>镜头</strong><span>手机 1 倍拍环境，2 倍拍人像和细节。广角只用在甬道，不要贴脸拍人。</span></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>避坑清单</h2>
+          <span class="label">拍前看一遍</span>
+        </div>
+        <div class="checklist">
+          <div class="check"><b>1</b><span>不要每张都正对镜头，背影、侧身、低头看门槛更有故事感。</span></div>
+          <div class="check"><b>2</b><span>红灯笼只做点缀，画面里保留一到三个就够，太多会显乱。</span></div>
+          <div class="check"><b>3</b><span>游客多时别等空场，改拍局部：门环、匾额、窗棂、墙角光影。</span></div>
+          <div class="check"><b>4</b><span>拍室内展陈注意现场规定，暗处别开强闪光，保护文物也保护画面质感。</span></div>
+        </div>
+      </section>
+
+      <div class="bottom-actions">
+        <a class="bottom-link" href="index.html#guide">返回乔家大院攻略页</a>
+        <a class="bottom-link secondary" href="photo-route.html">查看完整拍照路线</a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
