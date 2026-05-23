@@ -157,77 +157,103 @@
     .screen.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
 
     .home {
-      padding: 0 0 22px;
-      background: #151312;
-      color: #fff;
+      padding: 0;
+      background: #eef8ff;
+      color: var(--ink);
     }
 
     .hero {
       min-height: calc(100vh - 70px);
-      padding: 0 18px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding: 0;
       position: relative;
-      overflow: hidden;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .hero::-webkit-scrollbar { display: none; }
+
+    .home-poster {
+      position: relative;
+      min-height: calc(100vh - 70px);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(20, 18, 16, .12) 0%, rgba(20, 18, 16, .32) 38%, rgba(10, 8, 7, .72) 100%),
-        url("乔家大院主甬道.jpg") center / cover;
-      transform: scale(1.03);
+    .home-poster img,
+    .poster-bottom img {
+      width: 100%;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
-    .hero-inner,
-    .intro-card,
-    .down-note { position: relative; z-index: 1; }
+    .poster-actions {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: -18px 22px 10px;
+      padding: 12px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 12px 28px rgba(70, 48, 28, .12);
+    }
 
-    .hero-title {
-      margin: 34px 0 8px;
-      max-width: 330px;
-      font-size: clamp(42px, 13.5vw, 58px);
-      line-height: .98;
+    .poster-action {
+      min-height: 78px;
+      display: grid;
+      place-items: center;
+      gap: 5px;
+      border-radius: 18px;
+      background: rgba(255, 248, 236, .82);
+      color: #101722;
+      font-size: 16px;
       font-weight: 950;
-      text-shadow: 0 8px 28px rgba(0, 0, 0, .44);
-    }
-
-    .paint-badge {
-      display: inline-flex;
-      margin: 8px 0 0;
-      padding: 8px 15px;
-      border-radius: 999px 999px 999px 12px;
-      background: var(--yellow);
-      color: #111;
-      font-weight: 950;
-      box-shadow: 0 8px 0 rgba(0, 0, 0, .16);
-      transform: rotate(-2deg);
-    }
-
-    .paint-badge.secondary {
-      display: table;
-      font-size: 13px;
-      transform: rotate(1deg);
-      background: #ffe66a;
-    }
-
-    .down-note {
-      align-self: center;
-      margin: auto 0 10px;
       text-align: center;
-      font-size: 13px;
-      color: rgba(255, 255, 255, .86);
+    }
+
+    .poster-action span {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 21px;
+      box-shadow: 0 8px 18px rgba(52, 41, 32, .12);
+    }
+
+    .poster-action small {
+      display: block;
+      margin-top: 2px;
+      color: #67707c;
+      font-size: 11px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .poster-action.photo span { background: #ef5d8e; }
+    .poster-action.guide span { background: #f4b31e; }
+
+    .poster-bottom { position: relative; }
+
+    .poster-cta {
+      position: absolute;
+      left: 9.8%;
+      right: 9.8%;
+      bottom: 4.4%;
+      min-height: 16.8%;
+      border-radius: 999px;
+      z-index: 3;
+      background: rgba(255, 208, 57, .01);
+      color: transparent;
+      font-size: 0;
     }
 
     .intro-card {
       background: rgba(255, 249, 239, .96);
       color: var(--ink);
       border-radius: 24px;
-      padding: 14px 14px 12px;
-      box-shadow: 0 -8px 28px rgba(0, 0, 0, .2);
+      padding: 17px 14px 16px;
+      box-shadow: 0 14px 34px rgba(79, 58, 38, .12);
     }
 
     .intro-card h2,
@@ -239,20 +265,20 @@
 
     .pill-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
+      grid-template-columns: 1fr;
+      gap: 9px;
       margin: 12px 0 0;
     }
 
     .reason {
-      min-height: 42px;
+      min-height: 54px;
       display: flex;
       align-items: center;
-      gap: 7px;
-      padding: 7px 8px;
+      gap: 10px;
+      padding: 9px 10px;
       border-radius: 14px;
-      background: #fff1d8;
-      font-size: 12px;
+      background: rgba(255, 247, 229, .9);
+      font-size: 13px;
       font-weight: 800;
       line-height: 1.25;
     }
@@ -264,7 +290,7 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: var(--pink);
+      background: rgba(239, 93, 142, .82);
       color: #fff;
       font-size: 11px;
       font-weight: 950;
@@ -748,21 +774,22 @@
       <section class="screens">
         <article class="screen home active" data-screen="home" data-page-title="乔家大院">
           <div class="hero">
-            <div class="hero-inner">
-              <h1 class="hero-title">乔家大院</h1>
-              <div class="paint-badge">《大红灯笼高高挂》电影机位</div>
-              <div class="paint-badge secondary">躲出片 · 够晋味</div>
-            </div>
-            <div class="down-note">滑动开启乔家之旅</div>
-            <div class="intro-card">
-              <h2>为什么来乔家大院？</h2>
-              <div class="pill-list">
-                <div class="reason"><span class="dot">1</span>晋商文化地标，院落层层递进</div>
-                <div class="reason"><span class="dot">2</span>古建院景浓郁，红灯笼超上镜</div>
-                <div class="reason"><span class="dot">3</span>随手一拍就是大院感大片</div>
-                <div class="reason"><span class="dot">4</span>留出片的晋风氛围照</div>
+            <div class="home-poster">
+              <img src="qiao-home-top.png" alt="乔家大院首页">
+              <div class="poster-actions" aria-label="首页快捷入口">
+                <button class="poster-action photo" type="button" data-jump="inspire">
+                  <span>📷</span>
+                  <strong>拍照打卡<small>上传照片分享</small></strong>
+                </button>
+                <button class="poster-action guide" type="button" data-jump="guide">
+                  <span>🧭</span>
+                  <strong>游玩攻略<small>行程路线推荐</small></strong>
+                </button>
               </div>
-              <button class="cta intro-action" type="button" data-jump="detail">开始探索机位</button>
+              <div class="poster-bottom">
+                <img src="qiao-home-bottom.png" alt="">
+                <button class="poster-cta" type="button" data-jump="detail">开始探索机位</button>
+              </div>
             </div>
           </div>
         </article>
