@@ -2132,19 +2132,19 @@
       });
     }
 
-    let posterAssetsPromise;
+    let posterImageAssetsPromise;
 
-    function ensurePosterAssets() {
-      if (window.posterAssets) return Promise.resolve(window.posterAssets);
-      if (posterAssetsPromise) return posterAssetsPromise;
-      posterAssetsPromise = new Promise((resolve, reject) => {
+    function ensurePosterImageAssets() {
+      if (window.posterImageAssets) return Promise.resolve(window.posterImageAssets);
+      if (posterImageAssetsPromise) return posterImageAssetsPromise;
+      posterImageAssetsPromise = new Promise((resolve) => {
         const script = document.createElement("script");
-        script.src = "poster-assets.js?v=202605261615";
-        script.onload = () => resolve(window.posterAssets || {});
-        script.onerror = () => reject(new Error("保存素材加载失败"));
+        script.src = "poster-image-assets.js?v=2026052617";
+        script.onload = () => resolve(window.posterImageAssets || {});
+        script.onerror = () => resolve({});
         document.head.appendChild(script);
       });
-      return posterAssetsPromise;
+      return posterImageAssetsPromise;
     }
 
     function drawCoverImage(ctx, image, x, y, width, height) {
@@ -2207,13 +2207,29 @@
       });
     }
 
+    async function shareOrDownloadPoster(blob, filename) {
+      const file = new File([blob], filename, { type: "image/png" });
+      if (navigator.canShare?.({ files: [file] }) && navigator.share) {
+        await navigator.share({
+          files: [file],
+          title: "我的旅行人格",
+          text: "我的旅行人格测试结果"
+        });
+        showToast("已打开分享面板");
+        return;
+      }
+      const url = URL.createObjectURL(blob);
+      downloadUrl(url, filename);
+      window.setTimeout(() => URL.revokeObjectURL(url), 1200);
+      showToast("已开始保存图片");
+    }
+
     async function savePoster() {
       const result = results[state.resultKey];
       try {
         showToast("正在生成图片...");
-        const posterAssets = await ensurePosterAssets().catch(() => ({}));
-        const assetSrc = (src) => posterAssets[src] || src;
-        const persona = await loadImage(assetSrc(result.image));
+        const posterImageAssets = await ensurePosterImageAssets();
+        const persona = await loadImage(posterImageAssets[result.image] || result.image);
         const canvas = document.createElement("canvas");
         canvas.width = 780;
         canvas.height = 1480;
@@ -2322,13 +2338,10 @@
         });
 
         const blob = await canvasToBlob(canvas);
-        const url = URL.createObjectURL(blob);
-        downloadUrl(url, `我的旅行人格-${result.name}.png`);
-        window.setTimeout(() => URL.revokeObjectURL(url), 1200);
-        showToast("已开始保存图片");
+        await shareOrDownloadPoster(blob, `我的旅行人格-${result.name}.png`);
       } catch (error) {
         console.error("保存图片失败", error);
-        showToast(`保存失败：${error.message || "请重试"}`);
+        showToast(`分享失败：${error.message || "请重试"}`);
       }
     }
 
