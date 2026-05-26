@@ -1675,7 +1675,7 @@
     </div>
 
     <section class="screen cover active" data-screen="cover">
-      <img class="cover-bg" src="首页.png" alt="你的旅行人格" />
+      <img class="cover-bg" src="首页.webp" alt="你的旅行人格" />
       <button class="icon-btn" type="button" aria-label="返回">‹</button>
 
       <h1 class="cover-title"><span>你的</span><span><b class="blue">旅行</b><b class="black">人格</b></span></h1>
@@ -1715,7 +1715,7 @@
       <div class="result-name" id="resultName">暴走特种兵</div>
       <div class="result-scene" aria-hidden="true">
         <div class="mountains"></div>
-        <img class="persona-art" id="resultArt" src="暴走特种兵.png" alt="" />
+        <img class="persona-art" id="resultArt" alt="" loading="lazy" decoding="async" />
         <div class="go">Go!</div>
       </div>
       <div class="score-card">
@@ -1880,7 +1880,8 @@
         enemyEmoji: "🏖️",
         fight: "一个想日出前出门，一个想睡到自然醒；一个觉得来都来了，一个觉得活着就好。",
         advice: ["极限旅行也要带好舒适鞋", "一天打卡十个景点前先规划补给", "早起旅游人记得给身体留恢复时间"],
-        image: "暴走特种兵.png",
+        image: "暴走特种兵.webp",
+        posterImage: "暴走特种兵.png",
         stats: [85, 95, 45, 35]
       },
       vibe: {
@@ -1895,7 +1896,8 @@
         enemyEmoji: "📋",
         fight: "一个要按分钟推进，一个要随感觉停留；你说再坐会儿，对方已经打开下一站导航。",
         advice: ["优先选择适合发呆的旅行地", "提前收藏几家咖啡馆旅行点位", "治愈系旅行也别忘了吃正餐"],
-        image: "氛围感废物.png",
+        image: "氛围感废物.webp",
+        posterImage: "氛围感废物.png",
         stats: [42, 58, 92, 82]
       },
       planner: {
@@ -1910,7 +1912,8 @@
         enemyEmoji: "🎲",
         fight: "你刚排好三套方案，对方一句今天随便逛吧，足以让你的计划表开始冒烟。",
         advice: ["旅游攻略留出 20% 弹性", "旅行规划别全部自己扛", "行程规划做好但允许路线优化"],
-        image: "攻略控制狂.png",
+        image: "攻略控制狂.webp",
+        posterImage: "攻略控制狂.png",
         stats: [96, 62, 55, 28]
       },
       photo: {
@@ -1925,7 +1928,8 @@
         enemyEmoji: "🏃",
         fight: "你说再等五分钟光线更好，对方已经冲到下一个景点门口开始检票。",
         advice: ["旅行拍照前先看日照方向", "出片旅行也给同行人留休息时间", "拍照圣地别只拍照也看看风景"],
-        image: "旅游摄影师.png",
+        image: "旅游摄影师.webp",
+        posterImage: "旅游摄影师.png",
         stats: [58, 64, 76, 94]
       },
       chill: {
@@ -1940,7 +1944,8 @@
         enemyEmoji: "🏃",
         fight: "对方已经穿鞋出门，你还在研究酒店枕头；你们的时间观像两个平行宇宙。",
         advice: ["度假旅游优先订舒服酒店", "海岛度假每天只排一个重点", "懒人旅行要找同频旅伴"],
-        image: "摆烂度假王.png",
+        image: "摆烂度假王.webp",
+        posterImage: "摆烂度假王.png",
         stats: [34, 28, 88, 62]
       },
       lost: {
@@ -1955,7 +1960,8 @@
         enemyEmoji: "📋",
         fight: "你觉得走错也是缘分，对方觉得这是计划事故。一个随缘，一个抓狂。",
         advice: ["路痴旅行先下载离线地图", "旅行迷路时先补充能量", "随缘旅行也要把票证截图"],
-        image: "迷路锦鲤.png",
+        image: "迷路锦鲤.webp",
+        posterImage: "迷路锦鲤.png",
         stats: [47, 52, 78, 74]
       }
     };
@@ -2210,18 +2216,31 @@
     async function shareOrDownloadPoster(blob, filename) {
       const file = new File([blob], filename, { type: "image/png" });
       if (navigator.canShare?.({ files: [file] }) && navigator.share) {
-        await navigator.share({
-          files: [file],
-          title: "我的旅行人格",
-          text: "我的旅行人格测试结果"
-        });
-        showToast("已打开分享面板");
-        return;
+        let shared = false;
+        try {
+          await Promise.race([
+            navigator.share({
+              files: [file],
+              title: "我的旅行人格",
+              text: "我的旅行人格测试结果"
+            }).then(() => { shared = true; }),
+            new Promise((resolve) => window.setTimeout(resolve, 6000))
+          ]);
+          if (shared) {
+            showToast("已打开分享面板");
+            return;
+          }
+        } catch (error) {
+          if (error.name === "AbortError") {
+            showToast("已取消分享");
+            return;
+          }
+        }
       }
       const url = URL.createObjectURL(blob);
       downloadUrl(url, filename);
       window.setTimeout(() => URL.revokeObjectURL(url), 1200);
-      showToast("已开始保存图片");
+      showToast("已生成图片，可转发给好友");
     }
 
     async function savePoster() {
@@ -2229,7 +2248,8 @@
       try {
         showToast("正在生成图片...");
         const posterImageAssets = await ensurePosterImageAssets();
-        const persona = await loadImage(posterImageAssets[result.image] || result.image);
+        const posterImage = result.posterImage || result.image;
+        const persona = await loadImage(posterImageAssets[posterImage] || posterImage);
         const canvas = document.createElement("canvas");
         canvas.width = 780;
         canvas.height = 1480;
